@@ -1,0 +1,10 @@
+Description About files
+
+-->Data.db 
+This is SQLITE database file that contains data of our Inventory System.
+
+-->Main.py
+ THis file main.py contains all routes of our App.
+
+-->Wkhtmltopdf
+Wkhtmltopdf is the application that will generates PDF file(Invoice) from a webpage

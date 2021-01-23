@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" href="{{url_for('static', filename = 'login/images/icons/favicon2.ico')}}"/>
+    <title>Invoice</title>
+
+
+<style>
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+
+
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td {
+  padding:5px;
+  height: 20px;
+  vertical-align: bottom;
+}
+
+.modal:target {
+  display: table;
+  position: absolute;
+}
+
+
+
+    </style>
+</head>
+<body style="overflow: hidden;">
+<div class="model">
+<h1 style="margin:20px 230px;">M.Farhan Whole Sale Dealer</h1>
+<h4 style="margin:20px 280px;" >Quba Grammar School Badami Bagh Lahore</h4>
+<h4 style="margin:20px 330px;" >Phone # 03114345023</h4>
+<h4 style="margin-left:160px" >Bill Number: {{index}}</h4>
+<h4 style="margin-left:160px" >Customer: {{customer}}</h4>
+
+<div style="margin-left:160px;width:700px;">
+<table>
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Qty</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in rows%}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+<h3 style="margin-left:560px;">Total Items= {{rows|length}}</h3>
+<h3 style="margin-left:560px;">Grand-Total = {{total}}</h3>
+<h3 style="margin-left:560px;">Pending = {{pending}}</h3>
+
+</div>
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var url = 'http://127.0.0.1:5001/GUI-is-still-open';
+    fetch(url, { mode: 'no-cors'});
+    setInterval(function(){ fetch(url, { mode: 'no-cors'});}, 5000)();
+
+});
+
+</script>
+
+
+
+</body>
+</html>

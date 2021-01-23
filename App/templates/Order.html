@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Order</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" type="image/png" href="{{url_for('static', filename = 'login/images/icons/favicon2.ico')}}"/>
+
+	<!-- Bootstrap style -->
+	<link id="callCss" rel="stylesheet" href="{{url_for('static', filename = 'stock/themes/bootshop/bootstrap.min.css')}}" media="screen"/>
+	<link href="{{url_for('static', filename = 'stock/themes/css/base.css')}}" rel="stylesheet" media="screen"/>
+	<!-- Bootstrap style responsive -->
+	<link href="{{url_for('static', filename = 'stock/themes/css/bootstrap-responsive.min.css')}}" rel="stylesheet"/>
+	<link href="{{url_for('static', filename = 'stock/themes/css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+	<!-- Google-code-prettify -->
+	<link href="{{url_for('static', filename = 'stock/themes/js/google-code-prettify/prettify.css')}}" rel="stylesheet"/>
+
+	<style>
+
+div.BILL {
+  height:150px;
+  overflow-y:scroll;
+
+}
+
+#T{
+ width:90%;
+ margin-left:20px;
+}
+
+hr{
+	background-color: black;
+}
+
+</style>
+
+</head>
+<body style="">
+
+<div id="header">
+	<div>
+		<b style="margin-left:10px;">M.Farhan Whole Sale Dealer</b>
+		<a href="/new_order"><button style="border-radius:25px;margin-left:800px;margin-top:0px;" type="button" class="btn btn-warning">Reset</button></a>
+		<a href="/home"><button style="border-radius:25px;margin-left:0px;margin-top:3px;" type="button" class="btn btn-warning">Cancel</button></a>
+	</div>
+	<div class="well">
+
+		<label ><b>Category</b></label>
+		<form action="/category" style="margin-left:260px;" method="POST" class="form-horizontal" >
+			<div >
+				<select name="cat" required >
+<!--					<option value="{{select_cat}}">{{select_cat}}</option>-->
+					<option value="schools">School</option>
+					<option value="stores">Store</option>
+				</select>
+				<button style="border-radius:20px" type="submit">select</button>
+			</div>
+		</form>
+
+		<div >
+			<form action="/place"  class="form-container" method="post">
+				<label style="margin-top:10px" ><b>Place and Customer</b></label>
+				<div style="margin-left:260px;" >
+					<select name="place" required>
+						{% for i in institute %}
+						{% if i[0]==Selected_inst %}
+						<option selected value="{{Selected_inst}}">{{Selected_inst}}</option>
+						{% else %}
+						<option value="{{i[0]}}">{{i[0]}}</option>
+						{% endif %}
+						{% endfor %}
+					</select>
+					<input class="form-control mr-sm-2" type="text" name="customer" placeholder="{{customer}}" >
+					<a ><button style="border-radius:20px" type="submit">Add</button></a>
+				</div>
+			</form>
+		</div>
+
+
+
+
+
+
+		<label ><b>Company</b></label>
+		<form style="margin-left:180px;" action="/company/compnies_stock"  method="POST">
+			<div class="controls" >
+				<select style="margin-left:80px;" name="companies" required>
+<!--					<option selected value="{{selected_company}}">{{selected_company}}</option>-->
+					{% for i in COMPANIES %}
+					{% if i[0] == selected_company %}
+						<option selected value="{{selected_company}}">{{selected_company}}</option>
+					{% else %}
+						<option value="{{i[0]}}">{{i[0]}}</option>
+
+					{% endif %}
+					{% endfor %}
+				</select>
+				<a ><button style="border-radius:20px" type="submit">Filter Products</button></a>
+			</div>
+		</form>
+
+		<div >
+			<form action="/product"  class="form-container" method="post">
+				<label style="margin-top:10px" ><b>Product</b></label>
+				<div style="margin-left:260px;" >
+					<select name="products" required>
+						{% for i in Products %}
+						<option value="{{i[0]}}">{{i[0]}}   : {{i[5]}}</option>
+						{% endfor %}
+
+					</select>
+					<input class="form-control mr-sm-2" type="number" name="Quantity" placeholder="Quantity" >
+					<a ><button style="border-radius:20px" type="submit">Add</button></a>
+				</div>
+			</form>
+		</div>
+
+
+
+		<hr >
+		<h5>Bill</h5>
+		<div class="BILL">
+			<table id="T" class="table table-bordered">
+				<thead>
+				<tr>
+					<th scope="col">Item Name</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Unit Price</th>
+					<th scope="col">Total Price</th>
+					<!--			<th scope="col">Delete</th>-->
+				</tr>
+				</thead>
+				<tbody>
+				{% for i in Products_selected %}
+				<tr>
+					<td>{{i[0]}}</td>
+					<td>{{i[1]}}</td>
+					<td>{{i[2]}}</td>
+					<td>{{i[3]}}</td>
+					<!--			<td>Five</td>-->
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+
+		<hr/>
+
+		<form method="POST" action="/Bill" style="margin-left:800px;">
+			<label><b>Paid Amount</b></label>
+			<input class="form-control mr-sm-2" type="number" name="BILL" placeholder="Paid Amount" required >
+			<a ><button style="border-radius:20px" type="submit">Pay</button></a>
+		</form>
+
+
+
+		<table style="margin-top:10px" class="table">
+			<thead class="thead-dark">
+			<tr>
+				<th scope="col">Total Bill</th>
+				<th scope="col">Paid</th>
+				<th scope="col">Pending</th>
+				<th scope="col">Customer  </th>
+				<th scope="col">Receiver</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>{{Bill}}</td>
+				<td>{{Paid}}</td>
+				<td>{{Pending}}</td>
+				<td>{{customer}}</td>
+				<td>{{Receiver}}</td>
+				<td><a href="/bill_generated"><button  type="button" class="btn btn-warning">Get Invoice</button></a></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var url = 'http://127.0.0.1:5001/GUI-is-still-open';
+    fetch(url, { mode: 'no-cors'});
+    setInterval(function(){ fetch(url, { mode: 'no-cors'});}, 5000)();
+
+});
+
+</script>
+
+<span id="themesBtn"></span>
+</body>
+</html>

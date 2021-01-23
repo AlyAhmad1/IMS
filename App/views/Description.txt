@@ -1,0 +1,12 @@
+-->bills.py 
+ contain functions info related to all bills
+-->Home.py
+ contain functions for admin and local home
+-->invoice.py
+ only contains function of invoice
+-->login.py
+ contains only function related to login 
+-->order.py 
+ conatains function of order and some bill page
+-->school.py stock.py and store.py 
+ contains function for managing school, managing stock and stores

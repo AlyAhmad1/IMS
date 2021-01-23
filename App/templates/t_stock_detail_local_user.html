@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Stock Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	  <link rel="icon" type="image/png" href="{{url_for('static', filename = 'login/images/icons/favicon2.ico')}}"/>
+	  <link id="callCss" rel="stylesheet" href="{{url_for('static', filename = 'stock/themes/bootshop/bootstrap.min.css')}}" media="screen"/>
+    <link href="{{url_for('static', filename = 'stock/themes/css/base.css')}}" rel="stylesheet" media="screen"/>
+	<link href="{{url_for('static', filename = 'stock/themes/css/bootstrap-responsive.min.css')}}" rel="stylesheet"/>
+	<link href="{{url_for('static', filename = 'stock/themes/css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{url_for('static', filename = 'stock/themes/js/google-code-prettify/prettify.css')}}" rel="stylesheet"/>
+
+  </head>
+  <body style="background-size: cover;overflow-y:scroll;overflow-x:hidden;
+  background-attachment: fixed;background-position: center;background-image: url('{{url_for('static' ,filename='Admin_home/assets/img/slide/slide-9.jpg')}}');max-width: 100%;height: auto;">
+
+
+  <div class="container text-right" style="
+  margin-left:1000px;margin-bottom:2px;margin-top:5px;">
+	  <a href="/home/stock"><button style="border-radius:25px" type="button" class="btn btn-warning">Back</button></a>
+	  <a href="/home"><button style="border-radius:25px" type="button" class="btn btn-warning">Home</button></a>
+  </div>
+
+
+
+<div style="color:white;" id="mainBody">
+<div  class="container">
+<h1> {{ company }}</h1>
+<hr class="soften"/>
+
+<div style="color:white;" class="accordion" id="accordion2">
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<table class="table table-bordered">
+				<thead>
+				<tr>
+					<th scope="col">Item Name</th>
+					<th scope="col">Available Items</th>
+					<th scope="col">Sell Price</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for i in rows %}
+				<tr>
+					<td>{{i[0]}}</td>
+					<td>{{i[5]}}</td>
+					<td>{{i[7]}}</td>
+				</tr>
+				{% endfor %}
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+  </div>
+</div>
+
+</div>
+
+
+<!-- MainBody End ============================= -->
+<!-- Placed at the end of the document so the pages load faster ============================================= -->
+	<script src="{{url_for('static', filename = 'stock/themes/js/jquery.js')}}" type="text/javascript"></script>
+	<script src="{{url_for('static', filename = 'stock/themes/js/bootstrap.min.js')}}" type="text/javascript"></script>
+	<script src="{{url_for('static', filename = 'stock/themes/js/google-code-prettify/prettify.js')}}"></script>
+	
+	<script src="{{url_for('static', filename = 'stock/themes/js/bootshop.js')}}"></script>
+    <script src="{{url_for('static', filename = 'stock/themes/js/jquery.lightbox-0.5.js')}}"></script>
+
+  <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var url = 'http://127.0.0.1:5001/GUI-is-still-open';
+    fetch(url, { mode: 'no-cors'});
+    setInterval(function(){ fetch(url, { mode: 'no-cors'});}, 5000)();
+
+});
+
+</script>
+
+
+  <span id="themesBtn"></span>
+</body>
+</html>

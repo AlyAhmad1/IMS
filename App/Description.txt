@@ -1,0 +1,15 @@
+-->DB.py 
+db.py contains all ueries that we will perform in our Web Application
+
+-->__init__.py
+constructor file that contains some imports and a login wrap function.
+
+-->templates 
+This folder contains all templates taht we will use  in our Web Application.
+
+-->views 
+This folder contains all python contoler files that render certain views on 
+the call of certain function.
+
+--> static files contains all static files like js,css etc
+

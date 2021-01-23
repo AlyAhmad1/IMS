@@ -1,0 +1,32 @@
+All templates Details
+
+Admin
+<---------------------------------------------------------------------------------------->
+login-Page: is for Login 
+Admin-Home: is for Admin User (Admin)
+Local-Store: is for the Local area Stores (Admin)
+schools: is for schools data with which we are dealing (Admin )
+t_stock_detail: is inside t_stock describe all stock we buy from the companies. (Admin)
+Updat_stock : for uodation of stock in total stock
+Users : how many users exists
+
+
+Non Admin
+<---------------------------------------------------------------------------------------->
+schools_local_user: is for School data (Non Adimn)
+Local-Home: is for All the Users except Admin (Non Admin)
+local_store_local_user: for see all the stores (Non Admin)
+t_stock_detail_local_user: for view all items in stock (Non Admin)
+
+
+
+
+Both Common
+<---------------------------------------------------------------------------------------->
+Order: for taking order from the customer
+t_stock: is contains all comany Names from we buying inventory. (Admin )
+invoice : shows customer invoice 
+Bill :shows number of bills of each company(store and school)
+
+
+

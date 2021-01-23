@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename = 'login/images/icons/favicon2.ico')}}"/>
+
+  <title>Home</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{url_for('static', filename = 'Admin_home/assets/img/favicon.png')}}" rel="icon">
+  <link href="{{url_for('static', filename = 'Admin_home/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{url_for('static', filename = 'Admin_home/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename = 'Admin_home/assets/vendor/icofont/icofont.min.css" rel="stylesheet')}}">
+  <link href="{{url_for('static', filename = 'Admin_home/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename = 'Admin_home/assets/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename = 'Admin_home/assets/vendor/venobox/venobox.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename = 'Admin_home/assets/vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{url_for('static', filename = 'Admin_home/assets/css/style.css')}}" rel="stylesheet">
+<style>
+
+           hr{
+         background-color: white;
+         }
+</style>
+
+
+</head>
+
+<body style="background-attachment: fixed; background-position: center; background-size: cover;background-attachment: fixed;background-position: center;background-image: url('{{url_for('static' ,filename='Admin_home/assets/img/slide/slide-9.jpg')}}');max-width: 100%;height: auto;">
+
+<!-- ======= Top Bar ======= -->
+
+<div class="container text-right" style="margin-top:10px;;margin-right:10px;">
+  <a href="/logout"><button style="border-radius:25px" type="button" class="btn btn-warning">Log Out</button></a>
+  <a href="/new_order"><button style="border-radius:25px" type="button" class="btn btn-warning">New Order</button></a>
+</div>
+<hr/>
+
+<header id="header" class="fixed-top d-flex align-items-center header-transparent" >
+  <div class="container d-flex align-items-center">
+
+    <div class="logo mr-auto">
+      <h1 class="text-light"><span>M. Farhan Whole Sale Dealer</span></h1>
+    </div>
+
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li><a href="/home/schools">Schools</a></li>
+        <li><a href="/home/local_store">Local Stores</a></li>
+        <li><a href="/home/stock">Total Stock</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<script>
+
+<!-- Vendor JS Files -->
+<script src="{{url_for('static', filename = 'Admin_home/assets/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename = 'Admin_home/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url_for('static', filename = 'Admin_home/assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+<script src="{{url_for('static', filename = 'Admin_home/assets/vendor/php-email-form/validate.js')}}"></script>
+<script src="{{url_for('static', filename = 'Admin_home/assets/vendor/jquery-sticky/jquery.sticky.js')}}"></script>
+<script src="{{url_for('static', filename = 'Admin_home/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+<script src="{{url_for('static', filename = 'Admin_home/assets/vendor/venobox/venobox.min.js')}}"></script>
+<script src="{{url_for('static', filename = 'Admin_home/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+
+<!-- Template Main JS File -->
+<script src="{{url_for('static', filename = 'Admin_home/assets/js/main.js')}}"></script>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var url = 'http://127.0.0.1:5001/GUI-is-still-open';
+    fetch(url, { mode: 'no-cors'});
+    setInterval(function(){ fetch(url, { mode: 'no-cors'});}, 5000)();
+
+});
+
+</script>
+
+
+</body>
+
+</html>

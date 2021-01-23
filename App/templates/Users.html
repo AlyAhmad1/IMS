@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Register Users</title>
+     <link rel="icon" type="image/png" href="{{url_for('static', filename = 'login/images/icons/favicon2.ico')}}"/>
+
+     <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static', filename = 'schools/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static', filename = 'schools/css/business-casual.min.css')}}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--</head>-->
+     <style>
+         hr{
+         background-color: white;
+         }
+
+     </style>
+
+
+  <body style="background-image: url('{{url_for('static' ,filename='Admin_home/assets/img/slide/slide-9.jpg')}}');max-width: 100%;height: auto;">
+
+  <div style="margin-left:1000px;margin-top:10px;">
+    <a href="/home"><button style="border-radius:25px" type="button" class="btn btn-warning">Home</button></a>
+  </div>
+<hr/>
+
+
+<!--  <h1 class="site-heading text-center text-white d-none d-lg-block">-->
+<!--      <span class="site-heading-lower">M.Farhan Whole Sale Dealer</span>-->
+<!--    </h1>-->
+
+    <section style="padding: 0px;background-color:transparent; width:800px;margin-left:180px;" class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-5">
+                <span class="section-heading-upper">Users</span>
+                <span class="section-heading-lower">Active Users</span>
+              </h2>
+              <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                  <li style="color:black;" class="list-unstyled-item list-hours-item d-flex">
+                      <a style="color:black;" >Name</a>
+                      <span class="ml-auto"><a>Password</a></span>
+                      <span class="ml-auto"><a>Actions</a></span>
+
+                  </li>
+                  <li style="color:black;" class="list-unstyled-item list-hours-item d-flex">
+                      <a style="color:black;" >Admin</a>
+                      <span class="ml-auto"><a>----</a></span>
+                      <span class="ml-auto"><a>----</a></span>
+                  </li>
+                {% for i in rows[1:] %}
+                <li style="color:black;" class="list-unstyled-item list-hours-item d-flex">
+                  <a style="color:black;">{{ i[0] }} </a>
+                  <span class="ml-auto"><a>{{ i[1] }} </a></span>
+                  <span class="ml-auto"><a href="/users/delete/{{ i[0] }}/login">Remove</a></span>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{url_for('static', filename = 'schools/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'schools/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+  <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var url = 'http://127.0.0.1:5001/GUI-is-still-open';
+    fetch(url, { mode: 'no-cors'});
+    setInterval(function(){ fetch(url, { mode: 'no-cors'});}, 5000)();
+
+});
+
+</script>
+
+
+
+  </body>
+
+</html>

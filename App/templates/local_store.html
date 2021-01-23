@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" href="{{url_for('static', filename = 'login/images/icons/favicon2.ico')}}"/>
+
+
+    <title>Stores</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static', filename = 'schools/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static', filename = 'schools/css/business-casual.min.css')}}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+  /* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  width: 300px;
+  left:450px;
+  bottom:50px;
+
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px 50px;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 15px;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  border-radius: 25px;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+
+}
+
+         hr{
+         background-color: white;
+         }
+
+</style>
+
+
+  </head>
+
+
+  <body style="background-image: url('{{url_for('static' ,filename='Admin_home/assets/img/slide/slide-9.jpg')}}');max-width: 100%;height: auto;">
+
+  <div style="margin-left:1000px;margin-top:10px;">
+    <a href="/home"><button style="border-radius:25px" type="button" class="btn btn-warning">Back At Home</button></a>
+  </div>
+
+  <hr/>
+
+
+<!--  <h1 class="site-heading text-center text-white d-none d-lg-block">-->
+<!--      <span class="site-heading-lower">M.Farhan Whole Sale Dealer</span>-->
+<!--    </h1>-->
+
+    <section style="padding: 0px;background-color:transparent; width:800px;margin-left:180px;" class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-5">
+                <span class="section-heading-upper">Institutes</span>
+                <span class="section-heading-lower">Local Stores</span>
+              </h2>
+              <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                {% for i in rows %}
+                <li style="color:black;" class="list-unstyled-item list-hours-item d-flex">
+                  <a style="color:black;" href="/home/bill/{{ i[0] }}"> {{ i[0] }} </a>
+                  <span class="ml-auto"><a style="color:black;" href="/store/delete/{{ i[0] }}/{{ T_Name }}">Remove</a></span>
+                </li>
+                {% endfor %}
+              </ul>
+
+              <a href="#"><button onclick="openForm()" type="button" class="btn btn-warning">Add New Institute</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+<!--Add School Form-->
+    <div class="form-popup" id="myForm">
+      <form method="post" style="background-color:Black;color:white;" class="form-container">
+        <h1>Add Institute</h1>
+
+        <label  ><b>Name</b></label>
+        <input type="text" placeholder="Name" name="Name" required>
+
+        <button type="submit" class="btn">Add</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+      </form>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{url_for('static', filename = 'schools/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'schools/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Script to highlight the active date in the hours list -->
+    <script>
+      $('.list-hours li').eq(new Date().getDay()).addClass('today');
+    </script>
+
+    <script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+  <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var url = 'http://127.0.0.1:5001/GUI-is-still-open';
+    fetch(url, { mode: 'no-cors'});
+    setInterval(function(){ fetch(url, { mode: 'no-cors'});}, 5000)();
+
+});
+
+</script>
+
+  </body>
+
+</html>
