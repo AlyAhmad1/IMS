@@ -8,6 +8,6 @@ class H:
                 N_User = request.form.get('User')
                 N_Password = request.form.get('Password')
                 DB_obj.new_user(N_User, N_Password)
-            return render_template('Admin_home.html')
+            return render_template('index.html')
         else:
-            return render_template('local_home.html')
+            return render_template('index_1.html')
