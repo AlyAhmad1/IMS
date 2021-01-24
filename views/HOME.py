@@ -1,4 +1,4 @@
-from App import session, request, DB_obj, render_template
+from .. import session, request, DB_obj, render_template
 
 
 class H:

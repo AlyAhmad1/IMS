@@ -1,4 +1,4 @@
-from App import render_template, request, redirect, url_for, DB_obj, session
+from .. import render_template, request, redirect, url_for, DB_obj, session
 
 
 class St:

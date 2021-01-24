@@ -1,5 +1,5 @@
-from App import Application, DB_obj, redirect, url_for, login_required
-from App.views import login, school, store, stock, HOME, bills, order, invoice
+from . import Application, DB_obj, redirect, url_for, login_required
+from .views import login, school, store, stock, HOME, bills, order, invoice
 
 
 Log_obj = login.Log_handel()

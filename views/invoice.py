@@ -1,4 +1,4 @@
-from App import render_template, make_response, DB_obj
+from .. import render_template, make_response, DB_obj
 import pdfkit
 import _pickle as pickle
 

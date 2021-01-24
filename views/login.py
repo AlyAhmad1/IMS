@@ -1,4 +1,4 @@
-from App import render_template, request, redirect, url_for, DB_obj, session,FlaskForm,StringField,PasswordField,InputRequired
+from .. import render_template, request, redirect, url_for, DB_obj, session,FlaskForm,StringField,PasswordField,InputRequired
 
 
 class Log_handel():
