@@ -161,4 +161,4 @@ def del_bill(table, company, value):
 
 
 if __name__ == '__main__':
-    Application.run(debug=True)
+    Application.run()
