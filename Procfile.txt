@@ -1,1 +1,1 @@
-web:gunicorn wsgi:Application
+web:gunicorn ABC:Application --log-file -
