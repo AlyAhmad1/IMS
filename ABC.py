@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm, RecaptchaField ,file
 from wtforms import StringField, PasswordField
 from wtforms.validators import InputRequired, AnyOf
 from functools import wraps
-from App.DB import DataBase
+from DB import DataBase
 from datetime import timedelta
 import os
 import sys
@@ -18,8 +18,6 @@ def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
         if 'user' in session:
-            session.permanent = True
-            Application.permanent_session_lifetime = timedelta(minutes=20)
             return f(*args, **kwargs)
         else:
             return redirect(url_for('login'))

@@ -1,4 +1,4 @@
-from .. import render_template, request, DB_obj, session
+from ABC import render_template, request, DB_obj, session
 
 
 class Scl:

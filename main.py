@@ -1,5 +1,5 @@
-from . import Application, DB_obj, redirect, url_for, login_required
-from .views import login, school, store, stock, HOME, bills, order, invoice
+from ABC import Application, DB_obj, redirect, url_for, login_required
+from views import login, school, store, stock, HOME, bills, order, invoice
 
 
 Log_obj = login.Log_handel()
@@ -17,9 +17,7 @@ inv_ob = invoice.Inv()
 def login():
     return Log_obj.Login()
 
-
 # for Users
-
 @Application.route('/users')
 @login_required
 def users():

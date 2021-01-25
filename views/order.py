@@ -1,4 +1,4 @@
-from .. import Application,render_template,DB_obj, request, redirect,url_for,session
+from ABC import Application,render_template,DB_obj, request, redirect,url_for,session
 from . import bills
 bill_obj = bills.B()
 import _pickle as pickle

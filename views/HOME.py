@@ -1,4 +1,4 @@
-from .. import session, request, DB_obj, render_template
+from ABC import session, request, DB_obj, render_template
 
 
 class H:

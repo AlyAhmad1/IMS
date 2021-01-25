@@ -1,4 +1,4 @@
-from .. import render_template, DB_obj, redirect, url_for, request, session
+from ABC import render_template, DB_obj, redirect, url_for, request, session
 
 
 class Local_store:
