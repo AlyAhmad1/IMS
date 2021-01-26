@@ -1,1 +1,1 @@
-web: gunicorn ABC
+web: gunicorn ABC.py
