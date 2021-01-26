@@ -1,2 +1,2 @@
-from ABC import Application
+from main import Application
 App = Application

@@ -9,8 +9,6 @@ import os
 import sys
 
 DB_obj = DataBase()
-Application = Flask(__name__)
-Application.config['SECRET_KEY'] = '!2#4%6&8(0Ali'
 
 
 # making login_required decorator
