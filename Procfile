@@ -1,1 +1,1 @@
-web: gunicorn ABC.py
+web: gunicorn ABC.py:Application
