@@ -1,1 +1,1 @@
-web:gunicorn ABC:Application
+web:gunicorn ABC:Application --log-file -
