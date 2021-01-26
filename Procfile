@@ -1,1 +1,1 @@
-web: gunicorn ABC.py:Application
+web: gunicorn wsgi.py:App
