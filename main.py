@@ -1,10 +1,5 @@
-from flask import Flask
-from ABC import  DB_obj, redirect, url_for, login_required
+from ABC import  DB_obj, redirect, url_for, login_required, Application
 from views import login, school, store, stock, HOME, bills, order, invoice
-
-Application = Flask(__name__)
-Application.config['SECRET_KEY'] = '!2#4%6&8(0Ali'
-
 
 Log_obj = login.Log_handel()
 scl_obj = school.Scl()
