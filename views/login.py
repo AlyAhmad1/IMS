@@ -19,8 +19,7 @@ class Log_handel():
                             session['user'] = 'ADMIN'
                             return redirect(url_for('Home'))
                         else:
-                            session['user'] = User
-                            print(session['user'], '--------------------')
+                            session['user'] = 'LOCAL'
                             return redirect(url_for('Home'))
             return render_template('login_page.html')
 

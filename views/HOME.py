@@ -9,5 +9,5 @@ class H:
                 N_Password = request.form.get('Password')
                 DB_obj.new_user(N_User, N_Password)
             return render_template('Admin_home.html')
-        else:
+        elif session['user'] == 'LOCAL':
             return render_template('local_home.html')
