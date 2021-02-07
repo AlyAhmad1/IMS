@@ -5,6 +5,7 @@ from wtforms.validators import InputRequired, AnyOf
 from functools import wraps
 from DB import DataBase
 from datetime import timedelta
+from main import Application
 import os
 import sys
 
@@ -16,6 +17,8 @@ def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
         if 'user' in session:
+            session.permanent = True
+            Application.permanent_session_lifetime = timedelta(minutes=5)
             return f(*args, **kwargs)
         else:
             return redirect(url_for('login'))
